@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forums Page</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <!-- invisible divs -->
+    <!-- div element for create post form -->
+    <div class="form-popup" id="create-post-form">
+        <div class="form-container" style="border-radius: 1rem;">
+            <span class="close-button" onclick="closeForm()">X</span>
+            <h2>Post an alert</h2>
+            <form class="form-content" action="submit.php" method="post">
+                <input type="text" id="incidentPrompt" placeholder="Enter incident type" name="incident" required>
+                <br>
+                <input type="text" id="locationPrompt" placeholder="Crime location" name="location" required>
+                <br>
+                <input type="text" id="mapLinkPrompt" placeholder="Paste map embed link" name="mapLink" required>
+                <br>
+                <textarea id="postBodyPrompt" placeholder="Enter alert/post message" name="postBody"
+                    required></textarea>
+                <br>
+                <button id="submit-Btn" type="submit" onclick="closeForm(event)">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="forums__darken" id="forms__discussion">
+        <div class="forums__discussion-container">
+            <span class="close-button" onclick="closeDiscussion()">X</span>
+
+            <div class="forums__profile-feed">
+                <div class="forums__banner">
+                    <img src="images/banner.jpg" class="banner" alt="">
+                </div>
+                <img src="images/profile_paul.jpg" id="forums__profile-image" alt="Profile Picture">
+                <div class="profile-name">
+                    <h3>Paul San Diego</h3>
+                    <h1 style="margin-top: -1%; font-size: small; font-weight: 100;">Brixton, Nottinghill, SW18 7JH</h1>
+                </div>
+            </div>
+
+            <div class="forums__text-content">
+                <h3>How to protect yourself?</h3>
+                <p>Hey there, in today's world, keeping safe is more important than ever. Here are a few simple tips for keeping yourself safe. 1: Improve your sprinting speed and stamina. The best way to win a fight is to simply not risk the fight in the first place. The second way to win a fight is also to learn a great martial art. A good one I recommend is Sambo. A Russian friend of mine taught me some techniques, and it is quite devastating.</p>
+                <br>
+                <p>In Sambo, success stems from embracing the basics, dedicating yourself to purposeful training, listening attentively to your body's needs, and studying your opponents with a keen eye. Mastering the fundamentals lays the groundwork for your journey, so focus on refining your techniques.</p>
+            </div>
+
+            <div class="comments-section" style="margin-left: 20px; margin-right: 20px;">
+                <input type="text" class="comment-input" placeholder="Add a comment..." onkeydown="handleDiscussionComment(event, this.closest('.forums__darken'))">
+                </div>
+            <div class="comments-list" style="margin-left: 20px; margin-right:20px;padding-bottom: 20px;"></div>
+
+        </div>
+    </div>
+
+    <nav>
+        <!--top of the page-->
+        <div class="container">
+            <h2 class="log">
+                Company
+            </h2>
+            <div class="search-bar-forums">
+                <i class="uil uil-search"></i>
+                <input type="search" placeholder="Search forums">
+            </div>
+            <div class="create">
+                <a href="log_in.html"><label class="btn btn-primary" id="log-out-button">Log out</label></a>
+                
+                <div class="profile-picture">
+                    <img src="./images/angel-pfp.jpg">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!--left of the page-->
+            <div class="left">
+                <a>
+                    <div class="profile-picture">
+                        <img src="./images/angel-pfp.jpg">
+                    </div>
+                    <br>
+                    <div class="handle">
+                        <h4>Angel Mohamed</h4>
+                        <p class="text-muted">@angel_mohamed</p>
+                    </div>
+                </a>
+
+                <div class="sidebar">
+                    <a class="menu-item" href="index.html">
+                        <span><i class="uil uil-home"></i></span>
+                        <h3>Home</h3>
+                    </a>
+                    <a class="menu-item" href="forums.html">
+                        <span><i class="uil uil-comment-alt-lines"></i></span>
+                        <h3>Forums</h3>
+                    </a>
+                    <a class="menu-item" href="profile.html">
+                        <span><i class="uil uil-user-circle"></i></span>
+                        <h3>Profile</h3>
+                    </a>
+                    <a class="menu-item" id="notifications">
+                        <span><i class="uil uil-bell"><small class="notification-count">9+</small></i></span>
+                        <h3>Notifications</h3>
+
+                        <!--popup notifications-->
+                        <div class="notifications-popup">
+                            <div>
+                                <div class="notification-body">4 alerts in your location
+                                    <small>19h ago</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="notification-body">12 new posts in your location
+                                    <small>2 days ago</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="notification-body">6 new posts in your location
+                                    <small>3 days ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="menu-item">
+                        <span><i class="uil uil-setting"></i></span>
+                        <h3>Settings</h3>
+                    </a>
+                </div>
+                <label for="discussion-title" class="btn btn-primary">Start discussion</label>
+            </div>
+
+
+            <!--middle of the page-->
+            <div class="middle" id="middle-forums">
+                <form class="create-discussion-thread">
+                    <br>
+                    <div class="forums-title">
+                        <h1>Start a discussion</h1>
+                    </div>
+                    <input type="text" placeholder="Discussion title" id="discussion-title" required>
+                    <br>
+                    <textarea id="discussion-body" placeholder="Discussion body" name="discussion-body"
+                        required></textarea>
+                    <br>
+                    <input type="submit" value="Start Discussion" onclick="handleDiscussionSubmit(event)"
+                        class="btn btn-primary">
+
+                </form>
+                <br>
+                <br>
+
+                <h2>Recent Discussions</h2>
+                <div class="feeds" id="discussion-feed">
+                    <div class="feed-discussion" onclick="showDiscussion()">
+                        <div class="head">
+                            <div class="user">
+                                <div class="profile-picture">
+                                    <img src="images/profile_paul.jpg">
+                                </div>
+                                <div class="info">
+                                    <h4>Paul San Diego</h4>
+                                    <p class="text-muted"> <small class="time">2024-02-25</small></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="incident-type">
+                            <h2>How to protect yourself?</h2>
+                        </div>
+                    </div>
+
+                    <div class="feed-discussion">
+                        <div class="head">
+                            <div class="user">
+                                <div class="profile-picture">
+                                    <img src="images/egor-pfp.jpg">
+                                </div>
+                                <div class="info">
+                                    <h4>Egor Kuzmichev</h3>
+                                        <p class="text-muted"> <small class="time">2024-02-25</small></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="incident-type">
+                            <h2>Crime rate in South Harrow</h2>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <!--right of the page-->
+            <div class="right">
+                <div class="right-elements">
+                    <div class="tips">
+                        <div class="tip-overlay">
+                            <p class="tip-text"><a href="tips.html">Stay informed about safety, read our expert tips.</a></p>
+                        </div>
+                        <img class="tip-img" src="images/safety-1.png" alt="Background Image">
+                    </div>
+                    <div class="ad">
+                        <span class="sponsored-label">Sponsored</span>
+                        <img class="ad-img" src="images/ad-creative-3.png">
+                    </div>
+                    <div class="ad">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

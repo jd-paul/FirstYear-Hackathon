@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <!-- div element for create post form -->
+    <nav>
+        <!--top of the page-->
+        <div class="container">
+            <h2 class="log">
+                Nearby
+            </h2>
+            <div class="search-bar">
+                <i class="uil uil-search"></i>
+                <input type="search" id="post-search" placeholder="Search posts or alerts">
+            </div>
+            <div class="create">
+                <a href="log_in.html"><label class="btn btn-primary" id="log-out-button" >Logout</label></a>
+
+                <div class="profile-picture">
+                    <img src="images/angel-pfp.jpg">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!--left of the page-->
+            <div class="left">
+                <a>
+                    <div class="profile-picture">
+                        <img src="images/angel-pfp.jpg">
+                    </div>
+                    <br>
+                    <div class="handle">
+                        <h4>Angel Mohamed</h4>
+                        <p class="text-muted">
+                            @angel_mohamed
+                        </p>
+                    </div>
+                </a>
+
+                <div class="sidebar">
+                    <a class="menu-item" href="index.html">
+                        <span><i class="uil uil-home"></i></span>
+                        <h3>Home</h3>
+                    </a>
+                    <a class="menu-item" href="forums.html">
+                        <span><i class="uil uil-comment-alt-lines"></i></span>
+                        <h3>Forums</h3>
+                    </a>
+                    <a class="menu-item" href="profile.html">
+                        <span><i class="uil uil-user-circle"></i></span>
+                        <h3>Profile</h3>
+                    </a>
+                    <a class="menu-item" id="notifications">
+                        <span><i class="uil uil-bell"><small class="notification-count">9+</small></i></span>
+                        <h3>Notifications</h3>
+
+                        <!--popup notifications-->
+                        <div class="notifications-popup">
+                            <div>
+                                <div class="notification-body">4 alerts in your location
+                                    <small>19h ago</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="notification-body">12 new posts in your location
+                                    <small>2 days ago</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="notification-body">6 new posts in your location
+                                    <small>3 days ago</small>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="menu-item">
+                        <span><i class="uil uil-setting"></i></span>
+                        <h3>Settings</h3>
+                    </a>
+                </div>
+                <label for="create-post" class="btn btn-primary" onclick="showForm()"">+ Extended post</label>
+            </div>
+
+
+            <!--middle of the page-->
+            <div class="middle">
+
+                <div class="feeds">
+                    <div class="profile-feed">
+                        <div class="banner">
+                            <img src="images/banner.jpg" class="banner" alt="">
+                        </div>
+                        <img src="images/angel-pfp.jpg" id="profile-image" alt="Profile Picture">
+                        <div class="profile-name">
+                            <h3>Angel Mohamed</h3>
+                            <h1 style="font-size: small; font-weight: 100;">Wembeldon, South Kensington</h1>
+                        </div>
+                        <div class="stats">
+                            <div>
+                                <h3>2</h3>
+                                <h3 class="stats-h3">Posts/Alerts</h3>
+                            </div>
+                            <div>
+                                <h3>0</h3>
+                                <h3 class="stats-h3">Discussions</h3>
+                            </div>
+                            <div>  
+                                <h3>0</h3> 
+                                <h3 class="stats-h3">Followers</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h1>Posts</h1>
+                    </div>
+                    <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                                <div class="profile-picture">
+                                    <img src="images/angel-pfp.jpg">
+                                </div>
+                                <div class="info">
+                                    <h3>Angel Mohamed</h3>
+                                    <small class="location">Wembley Park · 11:30 · 28/02/2023</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="incident-type">
+                            <h4>Theft</h4>
+                        </div>
+                        <div class="post-body">
+                            <p2>arwgarwgargarg</p2>
+                            <br>
+                        </div>
+                        <div class="photo"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4960.741683924321!2d-0.28640715105898523!3d51.561434857165516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487613d5ed82ffa3%3A0x73cf70801a5fbcc2!2sWembley%20Park%2C%20Wembley!5e0!3m2!1sen!2suk!4v1709144844118!5m2!1sen!2suk" width="600" 
+                            height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+                        <div class="comments-section">
+                      <input type="text" class="comment-input" placeholder="Add a comment..." onkeydown="handleCommentInput(event, this.closest('.feed'))">
+                      </div>
+                    <div class="comments-list"></div>
+                    </div>
+                </div>
+
+            </div>
+            <!--right of the page-->
+            <div class="right">
+                <div class="right-elements">
+                    <div class="tips">
+                        <div class="tip-overlay">
+                            <p class="tip-text">Stay informed about safety, read our expert tips.</p>
+                        </div>
+                        <img class="tip-img" src="images/safety-1.png" alt="Background Image">
+                    </div>
+                    <div class="ad">
+                        <span class="sponsored-label">Sponsored</span>
+                        <img class="ad-img" src="images/ad-creative-3.png">
+                    </div>
+                    <div class="ad">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+</body>
+
+</html>
+
+</html>
